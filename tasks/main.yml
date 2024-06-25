@@ -2,6 +2,7 @@
 - name: Manage Docker Plugins
   community.docker.docker_plugin:
     plugin_name: "{{ item.name }}"
+    alias: "{{ item.alias }}"
     state: "{{ item.state | default('present') }}"
     plugin_options: "{{ item.options | default({}) }}"
   loop: "{{ docker_plugins }}"
